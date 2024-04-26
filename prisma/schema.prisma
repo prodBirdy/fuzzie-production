@@ -29,6 +29,8 @@ model User {
   DiscordWebhook        DiscordWebhook[]
   Notion                Notion[]
   Slack                 Slack[]
+  LinkedIn              LinkedIn[]
+  Facebook              Facebook[]
   connections           Connections[]
   workflows             Workflows[]
 }
@@ -59,6 +61,22 @@ model DiscordWebhook {
   channelId   String        @unique
   user        User          @relation(fields: [userId], references: [clerkId])
   userId      String
+  connections Connections[]
+}
+
+model LinkedIn {
+  id          String        @id @default(uuid())
+  user        User          @relation(fields: [userId], references: [clerkId])
+  userId      String
+  accessToken String        @unique
+  connections Connections[]
+}
+
+model Facebook {
+  id          String        @id @default(uuid())
+  user        User          @relation(fields: [userId], references: [clerkId])
+  userId      String
+  accessToken String        @unique
   connections Connections[]
 }
 
@@ -101,6 +119,10 @@ model Connections {
   userId           String?
   Slack            Slack?          @relation(fields: [slackId], references: [id])
   slackId          String?
+  LinkedIn         LinkedIn?       @relation(fields: [linkedInId], references: [id])
+  linkedInId       String?
+  Facebook         Facebook?       @relation(fields: [facebookId], references: [id])
+  facebookId       String?
 }
 
 model Workflows {

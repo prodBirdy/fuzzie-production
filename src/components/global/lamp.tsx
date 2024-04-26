@@ -3,6 +3,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { SparklesCore } from './sparkles'
+import Image from 'next/image'
 
 export function LampComponent() {
   return (
@@ -17,9 +18,9 @@ export function LampComponent() {
         }}
         className="mt-20 bg-gradient-to-br from-neutral-300 to-neutral-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
       >
-        Plans That
-        <br /> Fit You Best
+        Astra Media
       </motion.h1>
+
     </LampContainer>
   )
 }
